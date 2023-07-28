@@ -50,4 +50,16 @@ public class ProductController {
 	public List<Product> displayAllProduct(){
 		return productService.displayAllProduct();
 	}	
+	
+	// find data by its product name-------------------------------------------------------------
+	@GetMapping("/findProductByColor/{color}")
+	public List<Product> getProductColor(@PathVariable String color){
+		return productService.getProductByColor(color);
+	}	
+	
+	// find data by its product name------------------------------------------------------------------
+	@GetMapping("/findProductByName/{productName}")
+		public Product findByProductName(@PathVariable String productName){
+			return productService.findByProductName(productName);
+	}
 }

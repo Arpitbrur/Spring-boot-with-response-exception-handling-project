@@ -78,4 +78,14 @@ public class ProductService {
 	public List<Product> displayAllProduct(){
 		return productDao.displayAllProduct();
 	}	
+	
+	// find data by its product name
+	public List<Product> getProductByColor(String Color){
+		return productDao.getProductByColor(Color);
+	}	
+	
+	// find data by its product name------------------------------------------------------------------
+	public Product findByProductName(String productName){
+		return productDao.findByProductName(productName);
+	}	
 }

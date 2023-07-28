@@ -64,4 +64,15 @@ public class ProductDao {
 	public List<Product> displayAllProduct(){
 		return productRepository.findAll();
 	}
+	
+	// find data by its product Color--------------------------------------------------------------
+	public List<Product> getProductByColor(String color){
+		return productRepository.getProductByColor(color);
+	}
+	
+	
+	// find data by its product name------------------------------------------------------------------
+	public Product findByProductName(String productName){
+		return productRepository.findByProductName(productName);
+	}
 }
