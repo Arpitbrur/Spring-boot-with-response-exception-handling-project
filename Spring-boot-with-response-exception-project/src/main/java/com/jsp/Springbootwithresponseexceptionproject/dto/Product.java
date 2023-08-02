@@ -36,6 +36,16 @@ public class Product {
 	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
+	public Product(int productId, String productName, String productColor, double productPrice) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.productColor = productColor;
+		this.productPrice = productPrice;
+	}
+	public Product() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 }

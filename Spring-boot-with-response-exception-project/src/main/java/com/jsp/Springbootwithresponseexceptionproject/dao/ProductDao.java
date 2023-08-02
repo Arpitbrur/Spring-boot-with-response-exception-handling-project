@@ -15,6 +15,13 @@ public class ProductDao {
 	@Autowired
 	private ProductRepository productRepository;
 	
+	// perametrized constructor
+	public ProductDao(ProductRepository productRepository) {
+		super();
+		this.productRepository = productRepository;
+	}
+	
+
 	// insert product------------------------------------------------------------------------
 	public Product insertProduct(Product product) {
 		return productRepository.save(product);
