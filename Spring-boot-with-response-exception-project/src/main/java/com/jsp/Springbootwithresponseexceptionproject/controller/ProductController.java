@@ -47,7 +47,7 @@ public class ProductController {
 	
 	//display product------------------------------------------------------------------------------
 	@GetMapping("/displayAllProduct")
-	public List<Product> displayAllProduct(){
+	public ResponseStructure<List<Product>> displayAllProduct(){
 		return productService.displayAllProduct();
 	}	
 	

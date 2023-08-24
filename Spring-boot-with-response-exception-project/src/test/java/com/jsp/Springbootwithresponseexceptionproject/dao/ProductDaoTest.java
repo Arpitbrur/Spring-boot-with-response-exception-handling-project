@@ -6,6 +6,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -50,5 +51,22 @@ class ProductDaoTest {
 		mock(Product.class);
 		when(productRepository.save(product1)).thenReturn(product1);
 		assertThat(productDao.insertProduct(product1)).isEqualTo(product1);
+	}
+	
+	@AfterEach
+	public void deleteEach() {
+		try {
+			autoCloseable.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	
+	@Test
+	public void updateProduct() {
+		mock(ProductRepository.class);
+		mock(Product.class);
+		when(productRepository.save(product1)).thenReturn(product1);
+		assertThat(productDao.updateProduct(product1)).isEqualTo(product1);
 	}
 }

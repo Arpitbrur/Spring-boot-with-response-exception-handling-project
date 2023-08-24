@@ -20,6 +20,9 @@ public class ProductService {
 	@Autowired
 	private ResponseStructure<Product> responseStructure;
 	
+	@Autowired
+	private ResponseStructure<List<Product>> responseStructure2;
+	
 	// insert product------------------------------------------------------------------------
 	public ResponseStructure<Product> insertProduct(Product product) {
 		responseStructure.setStatusCode(HttpStatus.ACCEPTED.value());
@@ -75,8 +78,17 @@ public class ProductService {
 	}	
 	
 	//display product------------------------------------------------------------------------------
-	public List<Product> displayAllProduct(){
-		return productDao.displayAllProduct();
+	public ResponseStructure<List<Product>> displayAllProduct(){
+		List<Product> products = productDao.displayAllProduct();
+		if(products != null) {
+			responseStructure2.setStatusCode(HttpStatus.ACCEPTED.value());
+			responseStructure2.setMsg("Products-details");
+			responseStructure2.setData(products);
+			return responseStructure2;
+		}else {
+			throw new IdNotFoundException("Given id is not found in database");
+
+		}
 	}	
 	
 	// find data by its product name
